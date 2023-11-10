@@ -1,0 +1,24 @@
+import 'dart:io';
+
+void main() async {
+  int sayi1 = int.parse(await _readLine("Birinci sayıyı giriniz: "));
+  int sayi2 = int.parse(await _readLine("İkinci sayıyı giriniz: "));
+  int sonuc = sayi1 + sayi2;
+  await getData();
+  print("Toplam: $sonuc");
+}
+
+Future<String> _readLine(String prompt) async {
+  stdout.write(prompt);
+  return await stdin.readLineSync() ?? "";
+}
+
+Future<void> getData() async {
+  String data = await middleFunction();
+  print(data);
+}
+
+Future<String> middleFunction() async {
+  await Future.delayed(Duration(seconds: 3));
+  return "Merhaba";
+}
